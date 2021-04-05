@@ -4,12 +4,12 @@ import React from "react"
 const Footer = () => {
   return (
     <Box style={{ marginTop: "1rem" }}>
-      <Container>
+      {/* <Container> */}
       <div align="center">
         <hr />
         &copy; OFU
       </div>
-      </Container>
+      {/* </Container> */}
     </Box>
   )
 }

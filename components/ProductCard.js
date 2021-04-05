@@ -9,11 +9,11 @@ import {
   Button,
   Typography,
   CardActionArea,
-  Link,
   List,
   ListItem,
   Container,
 } from "@material-ui/core/"
+import Link from "next/link"
 // import Likes from "./Likes"
 // import { likeProduct } from "../redux/actions/productActions"
 import { useDispatch, useSelector } from "react-redux"
@@ -45,17 +45,17 @@ const ProductCard = ({ product }) => {
   return (
     <>
       <Card style={{ height: "100%", padding: "0.75rem" }}>
-        {/* <Link href={`/product/${product._id}`} underline="none"> */}
-        {/* <Container> */}
-        <CardActionArea>
-          <CardMedia
-            className={classes.root}
-            image={product.image}
-            title={product.name}
-          />
-          <CardHeader title={product.title} subheader={product.description} />
-        </CardActionArea>
-        {/* </Link> */}
+        <Link href={`/product/${product._id}`}>
+          {/* <Container> */}
+          <CardActionArea>
+            <CardMedia
+              className={classes.root}
+              image={product.image}
+              title={product.name}
+            />
+            <CardHeader title={product.title} subheader={product.description} />
+          </CardActionArea>
+        </Link>
         <List>
           <ListItem>
             <Button
@@ -64,7 +64,7 @@ const ProductCard = ({ product }) => {
               style={{ marginRight: "0.8rem" }}
             >
               <Link
-                // href={`/product/${product._id}`}
+                href={`/product/${product._id}`}
                 style={{ color: "white" }}
                 underline="none"
               >

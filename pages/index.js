@@ -4,7 +4,7 @@ import products from "../products"
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <h1>Latest Courses</h1>
       <Grid>
         <Grid container spacing={2} direction="row">
@@ -15,6 +15,6 @@ export default function Home() {
           ))}
         </Grid>
       </Grid>
-    </Container>
+    </>
   )
 }

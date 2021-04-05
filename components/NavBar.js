@@ -32,74 +32,74 @@ export default function ButtonAppBar() {
 
   return (
     <div>
-      <Container>
-        <AppBar position="static" style={{ color: "primary" }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              OpenFreeUni
-            </Typography>
+      {/* <Container> */}
+      <AppBar position="static" style={{ color: "primary" }}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            OpenFreeUni
+          </Typography>
+          <>
+            {/* {userInfo ? ( */}
             <>
-              {/* {userInfo ? ( */}
-              <>
-                <Box
-                  style={{
-                    marginRight: "0.25rem",
-                    marginLeft: "0.75rem",
-                    marginTop: "0.75",
-                  }}
+              <Box
+                style={{
+                  marginRight: "0.25rem",
+                  marginLeft: "0.75rem",
+                  marginTop: "0.75",
+                }}
+              >
+                <Typography style={{ marginTop: "0.25rem" }}>
+                  {" "}
+                  {/* Hello {userInfo.firstName} {userInfo.lastName} */}
+                </Typography>
+              </Box>
+              <Box
+                style={{
+                  marginTop: "0.25rem",
+                  display: "flex",
+                  justifyContent: "right",
+                  alignItems: "right",
+                }}
+              >
+                <Button
+                  color="inherit"
+                  onClick={logoutHandler}
+                  style={{ marginRight: "0.5rem" }}
                 >
-                  <Typography style={{ marginTop: "0.25rem" }}>
-                    {" "}
-                    {/* Hello {userInfo.firstName} {userInfo.lastName} */}
-                  </Typography>
-                </Box>
-                <Box
-                  style={{
-                    marginTop: "0.25rem",
-                    display: "flex",
-                    justifyContent: "right",
-                    alignItems: "right",
-                  }}
-                >
-                  <Button
-                    color="inherit"
-                    onClick={logoutHandler}
-                    style={{ marginRight: "0.5rem" }}
-                  >
-                    <ExitToAppIcon style={{ marginRight: "0.25rem" }} />
-                    LogOut
-                  </Button>
-                </Box>
-              </>
-              {/* ) : ( */}
-              <>
-                {" "}
-                <Button color="inherit" onClick={registerHandler}>
-                  <Link style={{ color: "white" }} href="/register">
-                    <AssignmentIcon style={{ marginRight: "0.25rem" }} />
-                    Register
-                  </Link>
+                  <ExitToAppIcon style={{ marginRight: "0.25rem" }} />
+                  LogOut
                 </Button>
-                <Button color="inherit" onClick={loginHandler}>
-                  <Link style={{ color: "white" }} href="/login">
-                    <PersonIcon style={{ marginRight: "0.25rem" }} />
-                    Login
-                  </Link>
-                </Button>
-              </>
-              {/* )} */}
+              </Box>
             </>
-          </Toolbar>
-        </AppBar>
-      </Container>
+            {/* ) : ( */}
+            <>
+              {" "}
+              <Button color="inherit" onClick={registerHandler}>
+                <Link style={{ color: "white" }} href="/register">
+                  <AssignmentIcon style={{ marginRight: "0.25rem" }} />
+                  Register
+                </Link>
+              </Button>
+              <Button color="inherit" onClick={loginHandler}>
+                <Link style={{ color: "white" }} href="/login">
+                  <PersonIcon style={{ marginRight: "0.25rem" }} />
+                  Login
+                </Link>
+              </Button>
+            </>
+            {/* )} */}
+          </>
+        </Toolbar>
+      </AppBar>
+      {/* </Container> */}
     </div>
   )
 }
