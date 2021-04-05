@@ -50,8 +50,8 @@ const ProductCard = ({ product }) => {
           <CardActionArea>
             <CardMedia
               className={classes.root}
-              image={product.image}
-              title={product.name}
+              image={product.selectedFile}
+              title={product.title}
             />
             <CardHeader title={product.title} subheader={product.description} />
           </CardActionArea>

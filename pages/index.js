@@ -1,8 +1,9 @@
 import { Container, Grid } from "@material-ui/core"
 import ProductCard from "../components/ProductCard"
-import products from "../products"
+import baseUrl from "../utils/baseUrl"
+// import products from "../products"
 
-export default function Home() {
+export default function Home({ products }) {
   return (
     <>
       <h1>Latest Courses</h1>
@@ -17,4 +18,14 @@ export default function Home() {
       </Grid>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`${baseUrl}/api/products/productRoute`)
+  const data = await res.json()
+  return {
+    props: {
+      products: data,
+    },
+  }
 }

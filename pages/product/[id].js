@@ -9,9 +9,10 @@ import {
 } from "@material-ui/core"
 import Link from "next/link"
 import { makeStyles } from "@material-ui/core/styles"
-import products from "../../products"
+// import products from "../../products"
 import Image from "next/image"
 import { useRouter } from "next/router"
+import baseUrl from "../../utils/baseUrl"
 
 const useStyles = makeStyles({
   root: {
@@ -24,12 +25,12 @@ const addToCartHandler = () => {
   // history.push(`/cart/${match.params.id}?qty=${qty}`)
 }
 
-const ProductPage = () => {
+const ProductDetail = ({ product }) => {
   const classes = useStyles()
   const router = useRouter()
-  const { id } = router.query
+  // const { id } = router.query
 
-  const product = products.find((p) => p._id === id)
+  // const product = products.find((p) => p._id === id)
 
   return (
     <div>
@@ -42,20 +43,20 @@ const ProductPage = () => {
       <Grid container>
         <Grid item xs={12} sm={6} md={6}>
           <Box>
-            <Image src={product.image} height="400rem" width="600rem" />
+            <Image src={product?.selectedFile} height="400rem" width="600rem" />
           </Box>
         </Grid>
         <Grid item xs={6} sm={3} md={3}>
           <Box>
             <Typography component="h5" variant="h5">
-              {product.title}
+              {product?.title}
             </Typography>
 
             <Typography style={{ marginTop: "1rem" }}>
               <strong>Price: ${product.price}</strong>
             </Typography>
             <Typography style={{ marginTop: "1rem" }}>
-              Description: {product.description}
+              Description: {product?.description}
             </Typography>
             <Typography style={{ marginTop: "1rem" }}>
               {/* Likes: <Likes product={product} /> */}
@@ -68,7 +69,7 @@ const ProductPage = () => {
             <Card className={classes.root}>
               <CardContent>
                 <Typography color="textPrimary" gutterBottom>
-                  <strong>Price: ${product.price}</strong>
+                  <strong>Price: ${product?.price}</strong>
                 </Typography>
                 Course: MERN Beginner
               </CardContent>
@@ -92,4 +93,14 @@ const ProductPage = () => {
   )
 }
 
-export default ProductPage
+export default ProductDetail
+
+export async function getServerSideProps({ params: { id } }) {
+  // console.log(id)
+  const res = await fetch(`${baseUrl}/api/products/${id}`)
+  const data = await res.json()
+  return {
+    props: { product: data },
+  }
+  //
+}
