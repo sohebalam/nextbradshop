@@ -28,14 +28,16 @@ const ProductPage = () => {
   const classes = useStyles()
   const router = useRouter()
   const { id } = router.query
-  console.log(id)
+
   const product = products.find((p) => p._id === id)
 
   return (
     <div>
-      <Link href="/">
-        <Button variant="outlined">Go Back</Button>
-      </Link>
+      <Box style={{ marginTop: "0.75rem" }}>
+        <Link href="/">
+          <Button variant="outlined">Go Back</Button>
+        </Link>
+      </Box>
       <h1>ProductPage </h1>
       <Grid container>
         <Grid item xs={12} sm={6} md={6}>
